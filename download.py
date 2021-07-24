@@ -43,10 +43,7 @@ with open(args.dataset_path, 'r') as f:
             # Load and Save Image
             response = requests.get(url_original)
             
-            if image['width'] > image['height']:
-                img = Image.open(BytesIO(response.content)).rotate(90)
-            else:
-                img = Image.open(BytesIO(response.content))
+            img = Image.open(BytesIO(response.content))
             if img._getexif():
                 img.save(file_path, exif=img.info["exif"])
             else:
