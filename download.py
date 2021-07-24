@@ -43,7 +43,7 @@ with open(args.dataset_path, 'r') as f:
             # Load and Save Image
             response = requests.get(url_original)
             
-            if sample['width'] > sample['height']:
+            if image['width'] > image['height']:
                 img = Image.open(BytesIO(response.content)).rotate(90)
             else:
                 img = Image.open(BytesIO(response.content))
