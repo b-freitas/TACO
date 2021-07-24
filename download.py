@@ -45,7 +45,7 @@ with open(args.dataset_path, 'r') as f:
             
             if sample['width'] > sample['height']:
                 img = Image.open(BytesIO(response.content)).rotate(90)
-            else
+            else:
                 img = Image.open(BytesIO(response.content))
             if img._getexif():
                 img.save(file_path, exif=img.info["exif"])
